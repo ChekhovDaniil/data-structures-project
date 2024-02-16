@@ -1,3 +1,6 @@
+from typing import Union
+
+
 class Node:
     """Класс для узла стека"""
 
@@ -7,28 +10,28 @@ class Node:
 
         :param data: данные, которые будут храниться в узле
         """
-        pass
+        self.data = data
+        self.next_node = next_node
 
 
 class Stack:
     """Класс для стека"""
+    top = None
 
-    def __init__(self):
-        """Конструктор класса Stack"""
-        pass
-
-    def push(self, data):
+    def push(self, data) -> None:
         """
         Метод для добавления элемента на вершину стека
 
         :param data: данные, которые будут добавлены на вершину стека
         """
-        pass
+        self.top = Node(data, self.top)
 
-    def pop(self):
+    def pop(self) -> Union[int, float, str, None]:
         """
         Метод для удаления элемента с вершины стека и его возвращения
 
         :return: данные удаленного элемента
         """
-        pass
+        top = self.top
+        self.top = self.top.next_node
+        return top.data
