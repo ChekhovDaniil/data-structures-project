@@ -1,6 +1,3 @@
-from typing import Union
-
-
 class Node:
     """Класс для узла стека"""
 
@@ -26,7 +23,7 @@ class Stack:
         """
         self.top = Node(data, self.top)
 
-    def pop(self) -> Union[int, float, str, None]:
+    def pop(self) -> [int, float, str, None]:
         """
         Метод для удаления элемента с вершины стека и его возвращения
 
@@ -35,3 +32,6 @@ class Stack:
         top = self.top
         self.top = self.top.next_node
         return top.data
+
+    def __str__(self) -> str:
+        return f'{self.top}'
